@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Maze Game</title>
+      <link rel="stylesheet" href="./style.css">
+      <link rel="shortcut icon" href="./source/icon.ico" type="image/x-icon">
+      <script src="./maze.js" defer></script>
+      <script src="./player.js" defer></script>
+</head>
+
+<body>
+      <div class="maze">
+            <div class="timer"></div>
+            <canvas></canvas>
+      </div>
+      <div class="d-pad">
+            <span class="left" data-key="37"></span>
+            <span class="up" data-key="38"></span>
+            <span class="right" data-key="39"></span>
+            <span class="down" data-key="40"></span>
+      </div>
+      <div class="win">YOU WIN!</div>
+      <div class="title">
+            <form>
+                  <label id="time-label">Time: </label>
+                  <div class="form-control time">
+                        <input type="number" required>
+                        <label>HH</label>
+                        <span class="underline"></span>
+                  </div>:
+                  <div class="form-control time">
+                        <input type="number" required>
+                        <label>MM</label>
+                        <span class="underline"></span>
+                  </div>:
+                  <div class="form-control time">
+                        <input type="number" required>
+                        <label>SS</label>
+                        <span class="underline"></span>
+                  </div>
+                  <div class="form-control">
+                        <input type="number" required>
+                        <label>Row/Column</label>
+                        <span class="underline"></span>
+                  </div>
+                  <span class="start-btn">START <span>></span></span>
+            </form>
+      </div>
+</body>
+
+</html>

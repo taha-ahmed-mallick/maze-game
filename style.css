@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Kalam', sans-serif;
+	user-select: none;
+	transition: all 0.25s;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+::placeholder {
+	color: #ffffff87;
+}
+
+html {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background: linear-gradient(to left top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+body.potrait {
+	flex-direction: column;
+}
+
+body.landscape {
+	flex-direction: row;
+}
+
+.maze {
+	position: relative;
+}
+
+
+.maze.potrait {
+	top: 10px;
+}
+
+.d-pad {
+	display: none;
+}
+
+.d-pad.touch {
+	padding: 85px;
+	border-radius: 100%;
+	background: #d6d7d761;
+	margin: 20px 0px;
+	position: relative;
+	display: block;
+}
+
+.d-pad.touch span {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 24px 13px 13px 24px;
+	background-image: url(./source/arrow.png);
+	filter: invert(1) drop-shadow(0px 0px 6px #000000b9);
+}
+
+.d-pad.touch span.active {
+	background-color: #00000059;
+}
+
+.d-pad.touch span.up {
+	top: 0px;
+	transform: translateX(-50%) rotate(90deg);
+}
+
+.d-pad.touch span.down {
+	bottom: 0px;
+	transform: translateX(-50%) rotate(270deg);
+}
+
+.d-pad.touch span.left {
+	left: 0px;
+	transform: translateY(-50%);
+}
+
+.d-pad.touch span.right {
+	right: 0px;
+	transform: translateY(-50%) rotate(180deg);
+}
+
+.win {
+	position: absolute;
+	height: 105vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+	font-weight: 600;
+	background: #00000061;
+	color: #ffffffc4;
+	top: -105vh;
+}
+
+.win.animate {
+	animation: win 2s linear 0s 1;
+}
+
+@keyframes win {
+	0% {
+		top: -105vh;
+	}
+
+	20% {
+		top: 0vh;
+	}
+
+	90% {
+		top: -5vh;
+	}
+
+	100% {
+		top: 0vh;
+	}
+}
+
+.title {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #00000061;
+}
+
+.title form {
+	padding: 64px 56px;
+	background: #1e88e5;
+	border-radius: 45px;
+	position: relative;
+}
+
+.start-btn {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 12px 8px;
+	background: #e53935;
+	border-radius: 10px;
+	border: 2px solid white;
+	cursor: pointer;
+	font-size: 16px;
+	outline: 0;
+}
+
+.start-btn:focus {
+	outline: 0;
+}
+
+.start-btn:hover {
+	color: #fff0f0;
+	transform: translateX(-50%) scale(0.95);
+}
+
+.start-btn:active {
+	transform: translateX(-50%) scale(1);
+}
+
+.form-control {
+	position: relative;
+	margin: 0 0 40px;
+	width: 300px;
+}
+
+.form-control input {
+	background: transparent;
+	border: 0;
+	border-bottom: 2px white solid;
+	display: block;
+	width: 100%;
+	padding: 15px 0;
+	font-size: 18px;
+	color: white;
+	position: relative;
+	z-index: 100;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+	outline: none;
+}
+
+.form-control label {
+	position: absolute;
+	top: 15px;
+	left: 0;
+}
+
+.form-control label span {
+	display: inline-block;
+	font-size: 18px;
+	min-width: 5px;
+	transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+	color: lightblue;
+	transform: translateY(-30px);
+}
+
+.form-control .underline {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	width: 0%;
+	background: #89daf4;
+}
+
+.form-control input:focus+span,
+.form-control input:valid+span {
+	width: 100%;
+}
+
+.form-control.time {
+	display: inline-block;
+	width: 35px;
+	text-align: center;
+}
+
+#time-label {
+	font-size: 20px;
+	position: relative;
+	top: 7px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+@media screen and (max-width: 400px) {
+	.win {
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.win {
+		font-size: 32px;
+	}
+}
