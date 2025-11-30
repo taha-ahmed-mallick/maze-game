@@ -98,7 +98,7 @@ function move(eve) {
 
 function winScreen() {
       winDom.classList.add("animate");
-      setTimeout(() => winDom.style.top = "0vh", 2000);
+      winDom.style.top = "0vh", 2000;
       enable = false;
       win.play();
 }
@@ -140,24 +140,19 @@ for (let i = 0; i < labels.length; i++) {
 
 for (let i = 0; i < 3; i++) {
       input[i].addEventListener("keypress", eve => {
-            setTimeout(() => {
-                  if (input[i].value == "-" || input[i].value == "+" || input[i].value == ".") {
-                        console.log(input[i].value);
-                        input[i].value = '';
-                  }
-                  let txt = input[i].value.split('');
-                  if (txt.length == 3) {
-                        txt.pop();
-                        txt.splice(1, 1, eve.key);
-                        input[i].value = '';
-                        for (let j = 0; j < txt.length; j++) {
-                              input[i].value += txt[j];
-                        }
-                  }
-            }, 0);
+            eve.preventDefault();
+            if (!isNaN(eve.key)) {
+                  if (input[i].value.length < 2) input[i].value += eve.key;
+                  if (input[i].value.length == 2) input[i].value = input[i].value[0] + eve.key;
+            }
+
       });
 }
 
-strtBtn.addEventListener("click", eve => {
-      console.log(input);
+strtBtn.addEventListener("click", () => {
+      if (input[3].value == "") {
+            alert("Fill the value in Row/Column input");
+      } else {
+
+      }
 });

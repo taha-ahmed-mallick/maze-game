@@ -99,6 +99,7 @@ body.landscape {
 }
 
 .win {
+	transition: 0.5s;
 	position: absolute;
 	height: 105vh;
 	width: 100vw;
@@ -112,22 +113,22 @@ body.landscape {
 	top: -105vh;
 }
 
-.win.animate {
+/* .win.animate {
 	animation: win 2s linear 0s 1;
-}
+} */
 
 @keyframes win {
 	0% {
 		top: -105vh;
 	}
 
-	20% {
+	/* 20% {
 		top: 0vh;
 	}
 
 	90% {
 		top: -5vh;
-	}
+	} */
 
 	100% {
 		top: 0vh;
@@ -249,6 +250,7 @@ body.landscape {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
+	appearance: none;
 	margin: 0;
 }
 
